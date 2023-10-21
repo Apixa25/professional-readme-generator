@@ -45,7 +45,7 @@ inquirer
       type: 'list',
       name: 'license',
       message: 'Do you want to license this? If so pick one:',
-      choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'ISC', 'None'],
+      choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'None'],
     },
     {
       type: 'input',
@@ -76,3 +76,6 @@ inquirer
 
 //   // Function call to initialize app
 // init();
+
+// exports 
+module.exports = questions;
