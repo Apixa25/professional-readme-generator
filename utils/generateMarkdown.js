@@ -28,7 +28,7 @@ function renderLicenseLink(license) {
     } else if (license === 'Apache 2.0') {
         licenseLink = 'http://www.apache.org/licenses/LICENSE-2.0'
     } else if (license === 'GPL 3.0') {
-        licenseLink = 'https://www.gnu.org/licenses'
+        licenseLink = 'https://www.tldrlegal.com/license/gnu-general-public-license-v3-gpl-3'
     } else {
         licenseLink = ''
     }
