@@ -5,7 +5,14 @@ const inquirer = require('inquirer');
 const questions = [];
 
 // TODO: Create a function to write README file
-
+function writeToFile(fileName, data) {
+    fs.writeFileSync(fileName, data, (err) => {
+      if (err) {
+        console.error(err);
+      }
+      console.log(`README.md has been generated successfully.`);
+    });
+  }
 
 // TODO: Create a function to initialize app
 // Function to generate the README content based on user input
