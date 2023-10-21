@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 // TODO: Create an array of questions for user input
 const questions = [];
 
@@ -12,42 +13,6 @@ function writeToFile(fileName, data) {
       }
       console.log(`README.md has been generated successfully.`);
     });
-  }
-
-  //this is what is generating the markdown for the README and should be in the generate markdown
-  function generateREADME(answers) {
-    return `
-  # ${answers.title}
-  
-  ## Description
-  ${answers.description}
-  
-  ## Table of Contents
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [License](#license)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [Questions](#questions)
-  
-  ## Installation
-  ${answers.installation}
-  
-  ## Usage
-  ${answers.usage}
-  
-  ## License
-  This project is licensed under the ${answers.license} license.
-  
-  ## Contributing
-  ${answers.contributing}
-  
-  ## Tests
-  ${answers.tests}
-  
-  ## Questions
-  For any questions, please contact [${answers.username}](https://github.com/${answers.username}) or email at ${answers.email}.
-  `;
   }
 
 // TODO: Create a function to initialize app - that has been placed at the bottom
@@ -105,7 +70,7 @@ inquirer
   ])
 
   .then((answers) => {
-    const generatedREADME = generateREADME(answers);
+    const generatedREADME = generateMarkdown(answers);
     writeToFile('README.md', generatedREADME);
   });
 
