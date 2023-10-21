@@ -14,9 +14,45 @@ function writeToFile(fileName, data) {
     });
   }
 
-// TODO: Create a function to initialize app
+  //this is what is generating the markdown for the README and should be in the generate markdown
+  function generateREADME(answers) {
+    return `
+  # ${answers.title}
+  
+  ## Description
+  ${answers.description}
+  
+  ## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  
+  ## Installation
+  ${answers.installation}
+  
+  ## Usage
+  ${answers.usage}
+  
+  ## License
+  This project is licensed under the ${answers.license} license.
+  
+  ## Contributing
+  ${answers.contributing}
+  
+  ## Tests
+  ${answers.tests}
+  
+  ## Questions
+  For any questions, please contact [${answers.username}](https://github.com/${answers.username}) or email at ${answers.email}.
+  `;
+  }
+
+// TODO: Create a function to initialize app - that has been placed at the bottom
+
 // Function to generate the README content based on user input
- 
 // Prompt the user for input
 inquirer
   .prompt([
@@ -67,6 +103,11 @@ inquirer
       message: 'What is your email address? ',
     },
   ])
+
+  .then((answers) => {
+    const generatedREADME = generateREADME(answers);
+    writeToFile('README.md', generatedREADME);
+  });
 
 //   // Function call to initialize app
 // init();
